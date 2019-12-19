@@ -24,7 +24,7 @@ const reducer = (state, action) => {
 			return {
 				...state,
 				loading: false,
-				errorMessage: null
+				movies: action.payload
 			};
 		case "SEARCH_MOVIES_FAILURE":
 			return {
@@ -67,7 +67,7 @@ const App = () => {
 				} else {
 					dispatch({
 						type: "SEARCH_MOVIES_FAILURE",
-						payload: jsonResponse.Error
+						error: jsonResponse.Error
 					});
 				}
 			});
